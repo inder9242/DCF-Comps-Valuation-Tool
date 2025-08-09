@@ -1,8 +1,7 @@
 # DCF & Comps Valuation Tool
 
 A Streamlit-based valuation model builder for NSE-listed companies.  
-This tool automates peer selection, market data retrieval, fundamental scraping, forecasting of financials, and visualization via Football Field Analysis — all in one workflow.
-streamlit link -  https://dcf-comps-analysis.streamlit.app/  
+This tool automates peer selection, market data retrieval, fundamental scraping, forecasting of financials, and visualization via Football Field Analysis — all in one workflow. streamlit link - https://dcf-comps-analysis.streamlit.app/
 ---
 
 ## Features
@@ -105,5 +104,6 @@ The tool generates an Excel workbook `<TICKER>_DCF_Comps_Valuation_Tool.xlsx` co
 - Valuation outputs and Football Field Analysis integrated into `DCF_Template.xlsx`.
 
 ---
+
 
 

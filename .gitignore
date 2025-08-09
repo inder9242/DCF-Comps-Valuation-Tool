@@ -1,0 +1,18 @@
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual environment folders
+venv/
+env/
+
+# Excel temp/backup files
+~$*.xlsx
+
+# System files (Windows / Mac)
+.DS_Store
+Thumbs.db
+
+# Streamlit secrets (if any)
+.streamlit/secrets.toml

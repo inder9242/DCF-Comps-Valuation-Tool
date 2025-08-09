@@ -1,0 +1,8 @@
+streamlit
+pandas
+yfinance
+requests
+beautifulsoup4
+openpyxl
+pyarrow
+numpy

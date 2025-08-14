@@ -23,8 +23,13 @@ st.title(APP_TITLE)
 
 left, right = st.columns([1.2, 0.8])
 with left:
-    symbol = st.text_input("An automated valuation tool for NSE-listed companies combining DCF, Trading Comps, and Football Field analysis with peer auto-selection, beta calculation, multi-method forecasting, and one-click Excel export. 
-    Company Symbol (no .NS)", "TCS").strip().upper()
+    symbol = st.text_input(
+        """An automated valuation tool for NSE-listed companies combining DCF, 
+        Trading Comps, and Football Field analysis with peer auto-selection, 
+        beta calculation, multi-method forecasting, and one-click Excel export. 
+        Company Symbol (no .NS)""",
+        "TCS"
+    ).strip().upper()
 with right:
     run = st.button("Run Model")
 
@@ -364,4 +369,5 @@ if run:
 
     st.download_button("Download Excel", buf.getvalue(), file_name=out_name,
                        mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
+
 

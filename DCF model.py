@@ -1,4 +1,3 @@
-# DCF model.py — simple final version
 
 import io
 from pathlib import Path
@@ -158,7 +157,7 @@ def get_prices_first(peers, target):
     cols += ok
     return df[cols], ok
 
-# ---- balance sheet alias getter ----
+
 def bs_get(bal, latest, *aliases):
     if bal is None or bal.empty or latest is None:
         return None
@@ -190,7 +189,7 @@ def fetch_snapshot(sym):
             try: return df.loc[key, latest] if (df is not None and latest in df.columns and key in df.index) else None
             except: return None
 
-        # balance sheet items (aliases)
+    
         cash_eq   = bs_get(bal, latest, "cash and cash equivalents", "cash & cash equivalents")
         restricted_cash = bs_get(bal, latest, "restricted cash")
         other_st_inv    = bs_get(bal, latest, "other short term investments", "short term investments", "other short-term investments")
@@ -369,5 +368,43 @@ if run:
 
     st.download_button("Download Excel", buf.getvalue(), file_name=out_name,
                        mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
+
+st.set_page_config(page_title=APP_TITLE, layout="wide")
+st.title(APP_TITLE)
+
+# Add project overview section
+st.markdown("""
+**About this Tool**
+
+• Automated valuation platform for NSE-listed companies  
+• Combines DCF, Trading Comps, and Football Field analysis  
+• Built for quick peer identification and one-click Excel output  
+• Uses a custom Excel template (created by me) to generate the final valuation model  
+• Designed for educational and research purposes only — **not** to be used as investment advice or financial recommendation.
+
+**Key Features**
+
+• Automatically selects 10 comparable companies for Trading Comps using NSE’s 4-level industry taxonomy (relaxes filters if fewer than 10 companies are available)  
+• Downloads historical price data directly from Yahoo Finance  
+• Calculates beta and R-squared values for all selected peer companies (based on 5-year weekly price history)  
+• Provides dropdown options for **Regression Beta** or **Bottom-Up Beta** selection  
+• Calculates WACC for each projected year (cost of equity via CAPM, cost of debt via Interest Expense ÷ Long-Term Debt)  
+• Offers two Equity Market Risk Premium options (Damodaran 2025 and a historical premium calculated from NIFTY50 returns)  
+• Scrapes P&L and Balance Sheet statements from Screener.in  
+• Multi-method forecasting: YoY, CAGR, ETS, SMA/WMA, Linear Regression, Trend  
+• Calculates Terminal Value using both **EV/EBITDA multiple** and **Gordon Growth** methods  
+• Exports a fully structured Excel workbook using the custom template  
+• Includes Football Field valuation range visualisation  
+
+**Note**
+
+This version does **not** include a detailed fixed asset schedule or full financing section — these features will be added in future versions.  
+The model is provided for educational and conceptual purposes only, so users can get a **biased-free idea** of how DCF valuation works.  
+You are free to modify the exported Excel file, add additional methods, or adjust assumptions as needed.
+
+**Project Created By**  
+indrajeetsingh9242@gmail.com
+""")
+
 
 

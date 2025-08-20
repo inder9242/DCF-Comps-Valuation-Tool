@@ -369,10 +369,7 @@ if run:
     st.download_button("Download Excel", buf.getvalue(), file_name=out_name,
                        mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
 
-st.set_page_config(page_title=APP_TITLE, layout="wide")
-st.title(APP_TITLE)
 
-# Add project overview section
 st.markdown("""
 **About this Tool**
 
@@ -405,6 +402,7 @@ You are free to modify the exported Excel file, add additional methods, or adjus
 **Project Created By**  
 indrajeetsingh9242@gmail.com
 """)
+
 
 
 

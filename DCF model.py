@@ -22,13 +22,7 @@ st.title(APP_TITLE)
 
 left, right = st.columns([1.2, 0.8])
 with left:
-    symbol = st.text_input(
-        """An automated valuation tool for NSE-listed companies combining DCF, 
-        Trading Comps, and Football Field analysis with peer auto-selection, 
-        beta calculation, multi-method forecasting, and one-click Excel export. 
-        Company Symbol (no .NS)""",
-        "TCS"
-    ).strip().upper()
+   symbol = st.text_input("Company Symbol (don't use .NS)", "TCS").strip().upper()
 with right:
     run = st.button("Run Model")
 
@@ -402,6 +396,7 @@ You are free to modify the exported Excel file, add additional methods, or adjus
 **Project Created By**  
 indrajeetsingh9242@gmail.com
 """)
+
 
 
 
